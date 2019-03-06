@@ -35,8 +35,10 @@ class App extends Component {
     .then(res => this.setState({ todos: res.data }))
 
 
-    axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10')
+    axios.get('http://localhost:5000/articles', { mode: 'no-cors'})
     .then(res => this.setState({ articles: res.data }))
+
+
 
 
     fetch(finalURL)
@@ -71,10 +73,14 @@ class App extends Component {
     .then(res => this.setState({todos: [...this.state.todos, res.data]}));
 
   }
+  addArticles = (title) => {
+    axios.post('http://localhost:3000/articles', {title, completed: false})
+    .then(res => this.setState({todos: [...this.state.todos, res.data]}));
+
+  }
 
 
   render() {
-    // console.log(this.state.todos)
     return (
       <Router>
       <div className="App">
@@ -86,12 +92,23 @@ class App extends Component {
           <Articles articles={this.state.articles}/>
         </React.Fragment>
       )} />
+
+
+      <Route exact path='/addarticles' render={props =>(
+        <React.Fragment>
+        <AddArticles addarticles={this.addArticles}/>
+        </React.Fragment>
+      )} />
+
+
       <Route exact path='/todos' render={props =>(
         <React.Fragment>
         <AddTodo addTodo={this.addTodo}/>
           <Todos todos={this.state.todos} markComplete={this.markComplete} delTodo={this.delTodo}/>
         </React.Fragment>
       )} />
+
+
       <Route exact path='/videos' render={props =>(
         <React.Fragment>
           <Videos resultyt={this.state.resultyt}/>
@@ -99,7 +116,6 @@ class App extends Component {
       )} />
 
       <Route exact path='/' component={Home}/>
-      <Route exact path='/addarticles' component={AddArticles}/>
       <Route exact path='/about' component={About}/>
       <Route exact path='/photos' component={Photos}/>
 

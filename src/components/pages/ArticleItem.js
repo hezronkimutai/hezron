@@ -13,7 +13,7 @@ class ArticleItem extends Component {
 
 
   render() {
-    const { id, title } = this.props.article;
+    const {  title } = this.props.article;
     return (
       <div style={this.getStyle()}>
         <p>

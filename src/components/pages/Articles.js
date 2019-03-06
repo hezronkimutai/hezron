@@ -7,7 +7,7 @@ class Articles extends Component {
   render() {
     // console.log(this.props.articles)
     return this.props.articles.map((article) =>(
-      <ArticleItem key={ article.id } article={article}/>
+      <ArticleItem key={ article.article_id } article={article}/>
     ));
   }
 }
