@@ -2,26 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class ArticleItem extends Component {
-  getStyle = () => {
-      return{
-        background: '#f4f4f4',
-        padding: '10px',
-        borderBottom: '1px #ccc dotted',
-        textDecoration: this.props.article.completed? 'line-through' : 'none'
-      }
-    }
-
 
   render() {
     const {  title } = this.props.article;
     return (
-      <div style={this.getStyle()}>
-        <p>
+      <div>
           { title }
+          </div>
 
-
-        </p>
-      </div>
     )
   }
 }

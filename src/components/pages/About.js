@@ -108,5 +108,5 @@ export default function About() {
 const cardStyle = {
 width:' 100%',
 marginTop:'10px',
-padding:'30px'
+padding:'5px'
 }

@@ -10,13 +10,13 @@ const IconText = ({ type, text }) => (
   </span>
 );
 
-class Articles extends Component {
+class Article extends Component {
   state = {
     articles:[]
   }
   componentDidMount() {
 
-    axios.get('https://hezronkimutaibackend.herokuapp.com/articles', { mode: 'no-cors'})
+    axios.get('http://0.0.0.0:8080/articles', { mode: 'no-cors'})
     .then(res => this.setState({ articles: res.data }))
 
 
@@ -60,7 +60,7 @@ class Articles extends Component {
      >
        <List.Item.Meta
          avatar={<Avatar src={item.avatar} />}
-         title={<Link className='link'  to="/article"> {item.title} </Link>}
+         title={<Link className='link'  to="/singlearticle"> {item.title} </Link>}
 
          description={item.body}
        />
@@ -76,4 +76,4 @@ class Articles extends Component {
 }
 
 
-export default Articles;
+export default Article;

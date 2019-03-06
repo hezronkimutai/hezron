@@ -1,17 +1,43 @@
 import React, { Component } from 'react';
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import PropTypes from 'prop-types';
+import axios from 'axios';
 
 class AddArticles extends React.Component {
+  state = {
+    title : '',
+    body : '',
+  };
+  handleChange = event => {
+    this.setState({title: event.target.value, body: event.target.value});
+  };
+  handleSubmit = event => {
+    event.preventDefault();
+    const article = {
+      title: this.state.title,
+      body:this.state.body
+    };
+    console.log(article);
+    axios.post('http://0.0.0.0:8080/articles' ,article , {headers : {
+        'Content-Type' : 'application/json'
+    }, mode: 'no-cors'})
+    .then(res => { console.log(res);
+    console.log(res.data)}
+    )
+  }
+
   render() {
+
           return (
-              <div className="card">
-                  <h2 style={editorStyle}>Post an article</h2>
-                  <form>
+
+
+
+                  <form onSubmit={this.handleSubmit}>
+                  <input type="text" name='title' onChange={this.handleChange} style={input} placeholder="Enter the titleof your document"/>
+
                   <CKEditor
                       editor={ ClassicEditor }
-                      data="<p></p>"
+                      data="<p ></p>"
                       onInit={ editor => {
                           // You can store the "editor" and use when it is needed.
                           console.log( 'Editor is ready to use!', editor );
@@ -29,15 +55,18 @@ class AddArticles extends React.Component {
                   />
                   <input type="submit" value="submit"   style={inputStyle}/>
                   </form>
-              </div>
           );
       }
   }
-  AddArticles.propTypes = {
-    addarticles: PropTypes.func.isRequired
-    }
+
   const editorStyle = {
     background: '#333',
+    color: ' #FF00FF',
+    textAlign: 'center',
+    padding: '5px'
+  }
+  const input = {
+    width:'100%',
     color: ' #FF00FF',
     textAlign: 'center',
     padding: '5px'
@@ -49,5 +78,4 @@ class AddArticles extends React.Component {
     textAlign: 'center',
     padding: '5px'
   }
-// style="height: 300px;"
 export default AddArticles;

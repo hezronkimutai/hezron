@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="shortcut icon" href="%PUBLIC_URL%/logo.jpeg" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/logo.png" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
@@ -17,68 +17,6 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root">
-
-      <script>
-        CKEDITOR.replace('editor')
-        var toolbarOptions = [
-    	    [{
-    	      'header': [1, 2, 3, 4, 5, 6, false]
-    	    }],
-    	    ['bold', 'italic', 'underline', 'strike'], // toggled buttons
-    	    ['blockquote', 'code-block'],
-
-    	    [{
-    	      'header': 1
-    	    }, {
-    	      'header': 2
-    	    }], // custom button values
-    	    [{
-    	      'list': 'ordered'
-    	    }, {
-    	      'list': 'bullet'
-    	    }],
-    	    [{
-    	      'script': 'sub'
-    	    }, {
-    	      'script': 'super'
-    	    }], // superscript/subscript
-    	    [{
-    	      'indent': '-1'
-    	    }, {
-    	      'indent': '+1'
-    	    }], // outdent/indent
-    	    [{
-    	      'direction': 'rtl'
-    	   }], // text direction
-
-    	    [{
-    	      'size': ['small', false, 'large', 'huge']
-    	    }], // custom dropdown
-
-    	    [{
-    	      'color': []
-    	    }, {
-    	      'background': []
-    	    }], // dropdown with defaults from theme
-    	    [{
-    	      'font': []
-    	    }],
-    	    [{
-    	      'align': []
-    	    }],
-    	    ['link', 'image'],
-
-    	    ['clean'] // remove formatting button
-    	  ];
-
-    	var quillFull = new Quill('#document-full', {
-    	  modules: {
-    	    toolbar: toolbarOptions,
-    	    autoformat: true
-    	  },
-    	  theme: 'snow',
-    	  placeholder: "Write something..."
-    	});</script></div>
+    <div id="root"></div>
   </body>
 </html>

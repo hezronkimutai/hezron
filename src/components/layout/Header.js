@@ -33,7 +33,7 @@ const headerStyle = {
   borderRadius:'5px'
 }
 const headStyle = {
-  fontSize:'100px'
+  fontSize:'70px'
 }
 
 // const imageStyle = {
