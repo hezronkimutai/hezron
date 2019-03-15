@@ -18,7 +18,7 @@ class AddArticles extends React.Component {
       body:this.state.body
     };
     console.log(article);
-    axios.post('http://0.0.0.0:8080/articles' ,article , {headers : {
+    axios.post('https://hezronkimutaibackend.herokuapp.com/articles' ,article , {headers : {
         'Content-Type' : 'application/json'
     }, mode: 'no-cors'})
     .then(res => { console.log(res);
